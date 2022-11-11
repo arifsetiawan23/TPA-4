@@ -1,3 +1,5 @@
+Use online_retail; 
+
 -- 1 pelanggan membeli 3 barang yang berbeda
 select id_pelanggan, pelanggan.nama, id_barang, nama_barang, jumlah_pembelian
 from transaksi inner join pelanggan
@@ -14,7 +16,8 @@ select nama_barang, id_kategori, nama_kategori, max(stok_barang)
 from barang inner join kategori
 on barang.id_kategori = kategori.id;
 
+-- Melihat pendapat rata-rata tiap bulan terakhir
 select transaksi.tanggal_transaksi, AVG(transaksi.jumlah_pembelian*barang.harga_barang) as rata_rata_transaksi
 FROM transaksi inner join barang
 on transaksi.id = barang.id
-GROUP BY YEAR(transaksi.tanggal_transaksi), MONTH(transaksi.tanggal_transaksi) desc limit 1;
+GROUP BY YEAR(transaksi.tanggal_transaksi), MONTH(transaksi.tanggal_transaksi);

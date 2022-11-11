@@ -27,11 +27,10 @@ create table barang(
 create table transaksi(
 	id int primary key not null auto_increment,
     tanggal_transaksi date,
-    kuantiti int,
     jumlah_pembelian int,
     id_pelanggan int,
     id_barang int,
     foreign key (id_pelanggan) references pelanggan(id),
     foreign key (id_barang) references barang(id)
 );
-drop table transaksi;
+
